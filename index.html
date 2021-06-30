@@ -51,7 +51,8 @@
             let crrLine = htmlLines[i];
             crrLine = crrLine.replaceAll('\"','\\"')
             crrLine = crrLine.replaceAll('\'','\\\'')
-          outputStr += varName+ " += \"" +crrLine+"\\n\";\n";
+            crrLine = crrLine.replaceAll('\\','\\\\')
+            outputStr += varName+ " += \"" +crrLine+"\\n\";\n";
         }
         document.getElementById('stringOutput').value = outputStr;
     }
