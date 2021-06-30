@@ -51,7 +51,7 @@
             let crrLine = htmlLines[i];
             crrLine = crrLine.replaceAll('\"','\\"')
             crrLine = crrLine.replaceAll('\'','\\\'')
-          outputStr += varName+ " += \"" +crrLine+"\n\";\n";
+          outputStr += varName+ " += \"" +crrLine+"\\n\";\n";
         }
         document.getElementById('stringOutput').value = outputStr;
     }
@@ -90,7 +90,7 @@ function copy2clipboard() {
         <input type="text" id = "varName" value="html">
 
         <br>
-        <button class="button button1">
+        <button class="button button1" onclick = "copy2clipboard()">
             <i class="fa fa-copy"></i>
             Copy</button>
 
