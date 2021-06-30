@@ -45,7 +45,7 @@
         let inputHtmltxt = document.getElementById('htmlInput').value;
         console.log(inputHtmltxt);
         let varName = document.getElementById('varName').value;
-        let outputStr = "String "+varName+" = \"\";\n";
+        let outputStr = "String "+varName+" = \"\n\";\n";
         let htmlLines = inputHtmltxt.split('\n');
         for (let i = 0; i < htmlLines.length; i++) {
             let crrLine = htmlLines[i];
@@ -72,6 +72,7 @@ function copy2clipboard() {
     <meta charset="UTF-8">
 
     <title>HTML to String</title>
+
 </head>
 <body>
 <div>
