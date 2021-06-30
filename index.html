@@ -45,13 +45,13 @@
         let inputHtmltxt = document.getElementById('htmlInput').value;
         console.log(inputHtmltxt);
         let varName = document.getElementById('varName').value;
-        let outputStr = "String "+varName+" = \"\n\";\n";
+        let outputStr = "String "+varName+" = \"\";\n";
         let htmlLines = inputHtmltxt.split('\n');
         for (let i = 0; i < htmlLines.length; i++) {
             let crrLine = htmlLines[i];
             crrLine = crrLine.replaceAll('\"','\\"')
             crrLine = crrLine.replaceAll('\'','\\\'')
-          outputStr += varName+ " += \"" +crrLine+"\";\n";
+          outputStr += varName+ " += \"" +crrLine+"\n\";\n";
         }
         document.getElementById('stringOutput').value = outputStr;
     }
@@ -85,8 +85,7 @@ function copy2clipboard() {
     <div class="body">
 
         <h2>HTML</h2>
-        <textarea id = "htmlInput" oninput = "convert()">
-        </textarea>
+        <textarea id = "htmlInput" oninput = "convert()"></textarea>
         <label for="varName">Variable name</label>
         <input type="text" id = "varName" value="html">
 
