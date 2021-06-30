@@ -49,9 +49,10 @@
         let htmlLines = inputHtmltxt.split('\n');
         for (let i = 0; i < htmlLines.length; i++) {
             let crrLine = htmlLines[i];
-            crrLine = crrLine.replaceAll('\"','\\"')
-            crrLine = crrLine.replaceAll('\'','\\\'')
-            crrLine = crrLine.replaceAll('\\','\\\\')
+            crrLine = crrLine.replaceAll('\\','\\\\');
+            crrLine = crrLine.replaceAll('\"','\\"');
+            crrLine = crrLine.replaceAll('\'','\\\'');
+            
             outputStr += varName+ " += \"" +crrLine+"\\n\";\n";
         }
         document.getElementById('stringOutput').value = outputStr;
