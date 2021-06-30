@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+    }
+    div.body {
+        width: 1000px;
+        margin: auto;
+        border: 3px solid #73AD21;
+        padding: 12px 20px;
+    }
+    textarea {
+        width: 100%;
+        height: 250px;
+        margin: 20px 0px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+    }
+    .button {
+     margin: 20px 0px;
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+       cursor:pointer;
+    }
+.button1 {background-color: #008CBA;} /* Blue */
+    </style>
+<script>
+    function convert(){
+        let inputHtmltxt = document.getElementById('htmlInput').value;
+        console.log(inputHtmltxt);
+        let varName = document.getElementById('varName').value;
+        let outputStr = "String "+varName+" = \"\";\n";
+        let htmlLines = inputHtmltxt.split('\n');
+        for (let i = 0; i < htmlLines.length; i++) {
+            let crrLine = htmlLines[i];
+            crrLine = crrLine.replaceAll('\"','\\"')
+            crrLine = crrLine.replaceAll('\'','\\\'')
+          outputStr += varName+ " += \"" +crrLine+"\";\n";
+        }
+        document.getElementById('stringOutput').value = outputStr;
+    }
+function copy2clipboard() {
+  /* Get the text field */
+  var copyText = document.getElementById("stringOutput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+
+}
+</script>
+    <meta charset="UTF-8">
+
+    <title>HTML to String</title>
+</head>
+<body>
+<div>
+
+    <div class="header">
+        <h1>HTML to String Converter</h1>
+    </div>
+
+
+    <div class="body">
+
+        <h2>HTML</h2>
+        <textarea id = htmlInput onchange = "convert()">
+        </textarea>
+        <label for="varName">Variable name</label>
+        <input type="text" id = "varName" value="html">
+
+        <br>
+        <button class="button button1">
+            <i class="fa fa-copy"></i>
+            Copy</button>
+
+
+        <h2>C++String</h2>
+        <textarea id = stringOutput readonly></textarea>
+    </div>
+</div>
+</body>
+</html>
